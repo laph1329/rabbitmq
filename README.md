@@ -3,6 +3,7 @@
 # Índice
 
 ## Módulo 1: Introducción a RabbitMQ
+
 1. [¿Qué es RabbitMQ?](#11-qué-es-rabbitmq)
 
    1.1. [Conceptos básicos de mensajería](#111-conceptos-básicos-de-mensajería)
@@ -22,6 +23,7 @@
    2.5. [Vinculación de intercambiadores](#125-vinculación-de-intercambiadores)
 
    2.6. [Mensajes y publicaciones (Publishing)](#126-mensajes-y-publicaciones-publishing)
+
 
 ## Módulo 2: Instalación y Configuración
 3. [Descarga e instalación de RabbitMQ](#21-descarga-e-instalación-de-rabbitmq)
@@ -185,5 +187,21 @@ La vinculación de intercambiadores en RabbitMQ es el proceso de conectar dos o 
 Para vincular dos intercambiadores, se necesita especificar el nombre del intercambiador de origen, el nombre del intercambiador de destino y la clave de enlace que determina qué mensajes se envían. La clave de enlace puede ser una cadena arbitraria o un patrón que coincida con la clave de enrutamiento (routing key) de los mensajes. El tipo de intercambiador de origen y el tipo de intercambiador de destino también influyen en el comportamiento de la vinculación.
 
 La vinculación de intercambiadores se puede realizar mediante la API de administración de RabbitMQ, la interfaz web o la línea de comandos. También se puede usar el plugin Shovel para crear una vinculación dinámica entre intercambiadores que se ejecutan en diferentes clústeres o servidores.
+
+### 1.2.6. Mensajes y publicaciones (Publishing)
+
+Los mensajes y publicaciones (publishing) en RabbitMQ son los conceptos que se refieren a la creación y el envío de los mensajes desde los productores (producers) a los intercambiadores (exchanges). Un mensaje es una unidad de información que se quiere transmitir entre las aplicaciones o sistemas que usan RabbitMQ. Una publicación es la acción de enviar un mensaje a un intercambiador.
+
+Un mensaje en RabbitMQ se compone de dos partes: el contenido y las propiedades. El contenido es el cuerpo del mensaje, que puede ser cualquier tipo de dato, como texto, binario, JSON, XML, etc. Las propiedades son metadatos que describen el mensaje, como la clave de enrutamiento (routing key), el identificador del mensaje, la prioridad, el tipo, la persistencia, etc.
+
+Una publicación en RabbitMQ se realiza mediante una conexión y un canal. Una conexión es una sesión TCP entre una aplicación y el servidor RabbitMQ. Un canal es un conducto virtual dentro de una conexión que permite enviar y recibir mensajes. Cada publicación se hace a través de un canal específico.
+
+Para publicar un mensaje en RabbitMQ, se necesita especificar el nombre del intercambiador al que se quiere enviar el mensaje, la clave de enrutamiento que identifica el destino del mensaje y las propiedades opcionales que se quieran añadir al mensaje. El intercambiador se encarga de distribuir el mensaje a las colas (queues) o a otros intercambiadores según las reglas de enrutamiento definidas por las claves de enlace (binding keys).
+
+La publicación de mensajes en RabbitMQ se puede realizar usando diferentes protocolos, como AMQP 0-9-1, AMQP 1.0, MQTT y STOMP. Cada protocolo tiene sus propias características y diferencias en cuanto al formato y las propiedades de los mensajes, el comportamiento del servidor y del cliente, y el mecanismo de confirmación para los productores.
+
+## Módulo 2: Instalación y Configuración
+
+### 2.1. Descarga e instalación de RabbitMQ
 
 
